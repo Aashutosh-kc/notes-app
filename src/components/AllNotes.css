@@ -9,10 +9,10 @@
 }
 .all-notes li{
 	display: flex;
-	background: white;
+	background: rgba(255,255,255,0.9);
 	border-radius: 8px;
 	padding: 12px;
-	width: 300px;
+	width: 360px;
 	border-left: 4px solid #285a48;
 }
 .delete-btn{

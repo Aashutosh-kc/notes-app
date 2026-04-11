@@ -1,8 +1,8 @@
 .add-notes{
-	margin: 12px auto;
+	margin: 0 auto 24px;
 	display: flex;
 	gap: 8px;
-	width: 300px;
+	width: 360px;
 	box-shadow: 0 3px #63a487;
 	padding: 20px;
 	justify-content: center;
