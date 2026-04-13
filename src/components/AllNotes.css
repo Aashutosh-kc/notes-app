@@ -9,24 +9,38 @@
 }
 .all-notes li{
 	display: flex;
-	background: rgba(255,255,255,0.9);
+	border: 1px solid #2d4a38;
+	background: #1a2e22;
 	border-radius: 8px;
 	padding: 12px;
-	width: 360px;
+	width: 400px;
 	border-left: 4px solid #285a48;
+	align-items: center;
+}
+.all-notes input{
+	padding: 4px 8px;
+	border-radius: 8px;
+	border: 1px solid #2d4a38;
+}
+.all-notes p{
+	color: #f1f5f9;
 }
 .all-btn{
 	margin-left: auto;
 }
 .edit-btn{
-	color: white;
-	padding: 4px;
-	border-radius: 8px;
-	
+	color: #2dd4bf;
+	padding: 4px 10px;
+	border-radius: 6px;
+	font-size: 12px;
 	margin-right: 4px;
-	border: none;
-	background: rgba(0, 255, 0, 0.45);
+	border: 1px solid #2dd4bf;
+	background: transparent;
 	cursor: pointer;
+}
+.edit-btn:hover{
+	background: #2dd4bf;
+	color: white;
 }
 .save-btn{
 	color: white;
@@ -38,14 +52,17 @@
 	cursor: pointer;
 }
 .delete-btn{
-	color: white;
+	color: rgba(255, 60, 60, 0.8);
 	padding: 4px 8px;
-	border-radius: 8px;
+	border-radius: 6px;
+	font-size: 12px;
 	margin-right: 4px;
 	border: none;
-	background: rgba(255, 0, 0, 0.7);
+	background: transparent;
 	cursor: pointer;
 }
 .delete-btn:hover{
+	background: rgba(255, 0, 0, 0.7);
+	color: rgba(255, 255, 255, 0.9);
 	opacity: 0.85;
 }
