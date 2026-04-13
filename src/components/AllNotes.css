@@ -15,14 +15,35 @@
 	width: 360px;
 	border-left: 4px solid #285a48;
 }
-.delete-btn{
+.all-btn{
+	margin-left: auto;
+}
+.edit-btn{
 	color: white;
 	padding: 4px;
 	border-radius: 8px;
-	margin-left: auto;
+	
 	margin-right: 4px;
 	border: none;
-	background: red;
+	background: rgba(0, 255, 0, 0.45);
+	cursor: pointer;
+}
+.save-btn{
+	color: white;
+	padding: 4px 8px;
+	border-radius: 8px;
+	margin-right: 4px;
+	border: none;
+	background: rgba(0, 255, 0, 0.45);
+	cursor: pointer;
+}
+.delete-btn{
+	color: white;
+	padding: 4px 8px;
+	border-radius: 8px;
+	margin-right: 4px;
+	border: none;
+	background: rgba(255, 0, 0, 0.7);
 	cursor: pointer;
 }
 .delete-btn:hover{
