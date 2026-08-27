@@ -11,7 +11,11 @@ A simple app to write, add, and delete notes.
 
 
 
+
+
 ![Preview](preview.png)
+
+
 
 
 
@@ -22,6 +26,18 @@ A simple app to write, add, and delete notes.
 - 📝 Add notes instantly
 - ❌ Delete notes
 - ⚡ Fast and lightweight
+
+---
+
+## Roadmap
+
+Planned improvements for future versions:
+
+- ✏️ Edit existing notes
+- 🔍 Search/filter notes
+- 🏷️ Categories or tags
+- 💾 Persistent storage (localStorage / backend)
+- 🌙 Dark mode
 
 ---
 
@@ -53,3 +69,4 @@ git clone https://github.com/Aashutosh-kc/notes-app.git
 cd notes-app
 npm install
 npm run dev
+```
