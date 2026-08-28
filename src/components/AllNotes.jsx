@@ -1,33 +1,37 @@
-import './AllNotes.css';
-import { useState} from 'react';
-function AllNotes({notes,removeNote,editNote}){
+import './AddNotes.css';
+import { useState, useEffect } from 'react';
 
-	const [editValue,setEditValue] = useState('');
-	const [editId, setEditId] = useState(null);
+function AddNotes({ setNotes }) {
+  const [notes, setLocalNotes] = useState(() => {
+    const saved = localStorage.getItem('notes');
+    return saved ? JSON.parse(saved) : [{ id: 1, value: "Log three movies in letterboxd" }];
+  });
+  const [input, setInput] = useState('');
 
-	function handleEdit(note){
-		setEditValue(note.value);
-		setEditId(note.id);
-	}
+  useEffect(() => {
+    localStorage.setItem('notes', JSON.stringify(notes));
+  }, [notes]);
 
-	function handleSave(id,value){
-		editNote(id,value);
-		setEditId(null);
-	}
-	return(
-	<ul className = "all-notes">
-		{notes.map((note) => <li key={note.id}>
-			{note.id === editId?<input value={editValue} onChange={(e) => setEditValue(e.target.value)} />
-			:<p>{note.value}</p>}
+  function handleSubmit() {
+    if (input === '') return;
+    const newNote = { id: Date.now(), value: input };
+    setLocalNotes((prev) => [...prev, newNote]);
+    setInput('');
+  }
 
-			<div className="all-btn">
-			{note.id === editId?<button className="save-btn" onClick={() => handleSave(note.id, editValue)}>Save</button>
-			:<button className="edit-btn" onClick={() => handleEdit(note)}>Edit</button>}
-			
-			<button className="delete-btn" onClick={() => removeNote(note.id)}>X</button>
-			</div>
-		</li>)}
-	</ul>
-	)
+  return (
+    <div className="add-notes">
+      <input
+        type="text"
+        placeholder="e.g Need to watch this movie"
+        value={input}
+        onChange={(e) => setInput(e.target.value)}
+      />
+      <button className="add-btn" onClick={handleSubmit}>
+        Add
+      </button>
+    </div>
+  );
 }
-export default AllNotes;
+
+export default AddNotes;
