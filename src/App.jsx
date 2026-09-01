@@ -6,7 +6,7 @@ function App(){
   const [notes, setNotes] = useState([]);
 
   function removeNote(id){
-    setNotes((prev) => prev.filter((note) => (note.id ===! id)));
+    setNotes((prev) => prev.filter((note) => (note.id !== id)));
   }
 
   function editNote(id,newValue){
