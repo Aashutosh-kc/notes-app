@@ -25,6 +25,7 @@ function AllNotes({ notes, removeNote, editNote }) {
               type="text"
               value={draft}
               onChange={(e) => setDraft(e.target.value)}
+              onKeyDown={(e) => {e.key==="Enter" && saveEdit(note.id)}}
             />
           ) : (
             <span>{note.value}</span>
