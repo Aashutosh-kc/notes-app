@@ -1,9 +1,12 @@
 import './AllNotes.css';
 import { useState } from 'react';
-
+import { Trash2,Pencil,Save } from 'lucide-react';
 function AllNotes({ notes, removeNote, editNote }) {
   const [editingId, setEditingId] = useState(null);
   const [draft, setDraft] = useState('');
+
+  const palette = ['#f97a5c', '#f5b942', '#a78bfa', '#38bdf8', '#a3e635'];
+
 
   function startEdit(note) {
     setEditingId(note.id);
@@ -18,8 +21,8 @@ function AllNotes({ notes, removeNote, editNote }) {
   return (
     <ul className="all-notes">
       {notes.length === 0 && <p>No notes yet.</p>}
-      {notes.map((note) => (
-        <li key={note.id}>
+      {notes.map((note,i) => (
+        <li key={note.id} style={{background: palette[i % palette.length]}}>
           {editingId === note.id ? (
             <input
               type="text"
@@ -34,15 +37,15 @@ function AllNotes({ notes, removeNote, editNote }) {
           <div className="all-btn">
             {editingId === note.id ? (
               <button className="save-btn" onClick={() => saveEdit(note.id)}>
-                Save
+                <Save size={16}/>
               </button>
             ) : (
               <button className="edit-btn" onClick={() => startEdit(note)}>
-                Edit
+                <Pencil size={16}/>
               </button>
             )}
             <button className="delete-btn" onClick={() => removeNote(note.id)}>
-              Delete
+              <Trash2 size={16}/>
             </button>
           </div>
         </li>

@@ -3,11 +3,11 @@
 	display: flex;
 	gap: 8px;
 	width: 400px;
-	border: 1px solid #2d4a38;
+	border: 1px solid rgba(0, 0, 0, 0.1);	
 	padding: 20px;
 	justify-content: center;
 	border-radius: 12px;
-	background: #1a2e22;
+	background: #ffffff;
 	
 }
 .add-notes input{
@@ -18,14 +18,14 @@
 	font: inherit;
 }
 .add-notes input::placeholder{
-	color: #285a48;
+	color: black;
 }
 .add-notes button{
 	border: none;
 	border-radius: 8px;
 	padding: 8px 12px;
-	color: white;
-	background: #306b54;
+	color: #ffffff;
+	background: #000000;
 	font: inherit;
 }
 .add-notes button:hover{
