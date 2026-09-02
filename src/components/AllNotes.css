@@ -26,18 +26,29 @@
 .all-notes span{
 	color: #1a1a1a;
 	font-size: 20px;
+	align-self: flex-start;
+}
+.all-notes .note-date{
+	font-size: 12px;
+	color: rgba(0, 0, 0, 0.55);
+	align-self: center;
+}
+.note-footer{
+	display: flex;
+	width: 100%;
+	align-items: center;
+	justify-content: space-between;
 }
 .all-btn{
-	margin-left: auto;
+	display: flex;
 }
 .edit-btn{
 	color: white;
 	padding: 6px 10px;
-	border-radius: 6px;
+	border-radius: 12px;
 	font-size: 12px;
 	margin-right: 4px;
 	background: black;
-	border-radius: 12px;
 	cursor: pointer;
 	border: none;
 }
