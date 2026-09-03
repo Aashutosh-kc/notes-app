@@ -17,16 +17,114 @@
 	align-items: center;
 	gap: 12px;
 }
-.all-notes input{
-	padding: 4px 4px;
-	border-radius: 8px;
-	border: 2px solid #6b4a30;
-	flex: 1;
+.all-notes{
+	display: flex;
+	align-items: flex-start;
+	justify-content: center;
+	flex-wrap: wrap;
+	gap: 12px;
+	list-style: none;
+	margin: 0 auto;
+}
+.all-notes li{
+	display: flex;
+	flex-direction: column;
+	border: 1px solid rgba(0, 0, 0, 0.1); 
+	border-radius: 16px;
+	padding: 12px;
+	width: 350px;
+	align-items: center;
+	gap: 12px;
+}
+.note-edit-input {
+    width: 100%;
+    font-size: 20px;
+    color: #1a1a1a;
+    font-family: inherit;
+    padding: 0;
+    border: none;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.3);
+    background: transparent;
+    outline: none;
+    resize: none;
+    overflow: hidden;
+}
+
+.note-edit-input:focus {
+    border-bottom-color: #1a1a1a;
+}
+.note-edit-input:focus{
+	border-bottom-color: #1a1a1a;
 }
 .all-notes span{
 	color: #1a1a1a;
 	font-size: 20px;
 	align-self: flex-start;
+	width: 100%;
+	word-break: break-word;
+}
+.all-notes .note-date{
+	font-size: 12px;
+	color: rgba(0, 0, 0, 0.55);
+	align-self: center;
+}
+.note-footer{
+	display: flex;
+	width: 100%;
+	align-items: center;
+	justify-content: space-between;
+}
+.all-btn{
+	display: flex;
+}
+.edit-btn{
+	color: white;
+	padding: 6px 10px;
+	border-radius: 12px;
+	font-size: 12px;
+	margin-right: 4px;
+	background: black;
+	cursor: pointer;
+	border: none;
+}
+.edit-btn:hover{
+	opacity: 0.8;
+}
+.save-btn{
+	color: white;
+	padding: 4px 10px;
+	border-radius: 6px;
+	font-size: 12px;
+	margin-right: 4px;
+	border: 1px solid black;
+	background: black;
+	cursor: pointer;
+}
+.save-btn:hover{
+	opacity: 0.8;
+}
+.delete-btn{
+	color: white;
+	padding: 4px 8px;
+	border-radius: 6px;
+	font-size: 12px;
+	margin-right: 4px;
+	border: 1px solid rgba(255, 80, 0, 0.8);
+	background: red;
+	cursor: pointer;
+}
+.delete-btn:hover{
+	opacity: 0.85;
+}
+.note-edit-input:focus{
+	border-bottom-color: #1a1a1a;
+}
+.all-notes span{
+	color: #1a1a1a;
+	font-size: 20px;
+	align-self: flex-start;
+	width: 100%;
+	word-break: break-word;
 }
 .all-notes .note-date{
 	font-size: 12px;

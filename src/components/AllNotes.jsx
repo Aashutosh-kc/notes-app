@@ -32,12 +32,28 @@ function AllNotes({ notes, removeNote, editNote }) {
       {notes.map((note) => (
         <li key={note.id} style={{ background: palette[note.id % palette.length] }}>
           {editingId === note.id ? (
-            <input
-              type="text"
+            <>
+            < textarea 
+              className='note-edit-input'
               value={draft}
-              onChange={(e) => setDraft(e.target.value)}
-              onKeyDown={(e) => { e.key === "Enter" && saveEdit(note.id) }}
+              onChange={(e)=>setDraft(e.target.value)}
+              onKeyDown={(e)=>{if (e.key === "Enter" && !e.shiftKey) 
+                { 
+                  e.preventDefault(); 
+                  saveEdit(note.id); 
+                } }}
+              rows={1}
+              ref={(ta)=>
+              { 
+                if (ta){
+                ta.style.height = 'auto';
+                ta.style.height = ta.scrollHeight + "px";
+              }
+           
+              }
+              }
             />
+            </>
           ) : (
             <span>{note.value}</span>
           )}
