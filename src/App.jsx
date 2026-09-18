@@ -1,9 +1,12 @@
-import {  useState } from 'react';
+import {  useEffect, useState } from 'react';
 import AddNotes from './components/AddNotes.jsx';
 import AllNotes from './components/AllNotes.jsx';
 import './App.css'
 function App(){
-  const [notes, setNotes] = useState([]);
+  const [notes, setNotes] = useState(()=>{
+    const saved = localStorage.getItem('notes');
+    return saved ? JSON.parse(saved) :[];
+  });
 
   function removeNote(id){
     setNotes((prev) => prev.filter((note) => (note.id !== id)));
@@ -13,6 +16,9 @@ function App(){
     setNotes((prev) => prev.map((n) => n.id === id?{...n, value : newValue}: n));
   }
 
+  useEffect(()=>{
+    localStorage.setItem('notes',JSON.stringify(notes));
+  },[notes])
 
   return(
   <>
