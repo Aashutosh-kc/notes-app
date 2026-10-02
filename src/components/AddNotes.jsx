@@ -8,7 +8,8 @@ function AddNotes({setNotes}){
 			return ;
 		const newNote = {
 			id : Date.now(),
-			value : input
+			value : input,
+			pinned: false
 		}
 		setNotes((prev) => [...prev ,newNote]);
 		setInput('');

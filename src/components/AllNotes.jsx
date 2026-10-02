@@ -1,8 +1,8 @@
 import './AllNotes.css';
 import { useState } from 'react';
-import { Trash2, Pencil, Save } from 'lucide-react';
+import { Trash2, Pencil, Save,Pin } from 'lucide-react';
 
-function AllNotes({ notes, removeNote, editNote }) {
+function AllNotes({ notes, removeNote, editNote, setPin }) {
   const [editingId, setEditingId] = useState(null);
   const [draft, setDraft] = useState('');
 
@@ -73,6 +73,9 @@ function AllNotes({ notes, removeNote, editNote }) {
               <button className="delete-btn" onClick={() => removeNote(note.id)}>
                 <Trash2 size={16} />
               </button>
+              <button className="pin-btn" onClick={() => setPin(note.id,!note.pinned)} >
+                  <Pin size={16} />
+                </button>
             </div>
           </div>
         </li>

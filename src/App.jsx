@@ -15,7 +15,9 @@ function App(){
   function editNote(id,newValue){
     setNotes((prev) => prev.map((n) => n.id === id?{...n, value : newValue}: n));
   }
-
+  function setPin(id,value){
+    setNotes((prev) => prev.map((n) => n.id === id?{...n,pinned: value}: n));
+  }
   useEffect(()=>{
     localStorage.setItem('notes',JSON.stringify(notes));
   },[notes])
@@ -24,7 +26,7 @@ function App(){
   <>
   <h1>Notes</h1>
   <AddNotes setNotes={setNotes} />
-  <AllNotes notes={notes}  removeNote={removeNote} editNote={editNote}/>
+  <AllNotes notes={notes}  removeNote={removeNote} editNote={editNote} setPin={setPin}/>
   </>
 )
 }

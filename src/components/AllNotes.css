@@ -179,3 +179,13 @@
 .delete-btn:hover{
 	opacity: 0.85;
 }
+.pin-btn{
+	color: white;
+	padding: 4px 8px;
+	border-radius: 6px;
+	font-size: 12px;
+	margin-right: 4px;
+	border: 1px solid rgba(255, 80, 0, 0.8);
+	background: red;
+	cursor: pointer;
+}
