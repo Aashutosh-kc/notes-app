@@ -3,6 +3,7 @@ import AddNotes from './components/AddNotes.jsx';
 import AllNotes from './components/AllNotes.jsx';
 import './App.css'
 function App(){
+  
   const [notes, setNotes] = useState(()=>{
     const saved = localStorage.getItem('notes');
     return saved ? JSON.parse(saved) :[];
@@ -16,7 +17,11 @@ function App(){
     setNotes((prev) => prev.map((n) => n.id === id?{...n, value : newValue}: n));
   }
   function setPin(id,value){
-    setNotes((prev) => prev.map((n) => n.id === id?{...n,pinned: value}: n));
+    setNotes((prev) => {
+      const updatedNotes = prev.map((n) => n.id === id?{...n,pinned: value}: n);
+      updatedNotes.sort((a,b) => b.pinned - a.pinned)
+      return updatedNotes;
+    });
   }
   useEffect(()=>{
     localStorage.setItem('notes',JSON.stringify(notes));
