@@ -1,11 +1,15 @@
 import './AddNotes.css';
 import { useState} from 'react';
-function AddNotes({setNotes}){
+function AddNotes({setNotes,showToast}){
 	const [input,setInput] = useState('');
 
 	function handleSubmit(){
-		if (input === '')
+		if (input.trim() === '')
+		{
+			showToast("Note can't be empty","error");
 			return ;
+		}
+			
 		const newNote = {
 			id : Date.now(),
 			value : input,

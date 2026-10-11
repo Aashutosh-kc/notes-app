@@ -27,6 +27,10 @@ function App(){
   }
 
   function editNote(id,newValue){
+    if (newValue.trim() === ""){
+      showToast("Note can't be empty.","error")
+      return;
+    }
     setNotes((prev) => prev.map((n) => n.id === id?{...n, value : newValue}: n));
     showToast("Note edited sucessfully.","success")
   }
@@ -51,7 +55,7 @@ function App(){
   return(
   <>
   <h1>Notes</h1>
-  <AddNotes setNotes={setNotes} />
+  <AddNotes setNotes={setNotes} showToast={showToast}/>
   <AllNotes notes={notes}  removeNote={removeNote} editNote={editNote} setPin={setPin}/>
   {toast && <Toast message={toast.message} type={toast.type} />}
   </>
