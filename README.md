@@ -19,26 +19,25 @@ A simple app to write, add, and delete notes.
 
 
 
----
-
 ## Features
 
-- 📝 Add notes instantly
+- 📝 Add notes instantly (Enter or button)
+- ✏️ Edit notes inline, with a multi-line auto-growing editor
+- 📌 Pin notes to keep them at the top
 - ❌ Delete notes
+- 💾 Notes persist across reloads via localStorage
+- 🎨 Color-coded cards with creation dates
 - ⚡ Fast and lightweight
 
 ---
 
 ## Roadmap
 
-Planned improvements for future versions:
-
-- ✏️ Edit existing notes
+- 🔔 Toast notifications for add/delete/pin
 - 🔍 Search/filter notes
 - 🏷️ Categories or tags
-- 💾 Persistent storage (localStorage / backend)
 - 🌙 Dark mode
-
+- ☁️ Backend sync
 ---
 
 ## Built With
