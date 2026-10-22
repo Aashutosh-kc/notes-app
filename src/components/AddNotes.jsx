@@ -17,6 +17,7 @@ function AddNotes({setNotes,showToast}){
 		}
 		setNotes((prev) => [...prev ,newNote]);
 		setInput('');
+		showToast("Note created sucessfully","success");
 	}
 	return (
 	<div className = "add-notes">
