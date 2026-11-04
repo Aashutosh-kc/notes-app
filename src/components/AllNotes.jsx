@@ -38,8 +38,8 @@ function AllNotes({ notes, removeNote, editNote, setPin }) {
           className={note.pinned ? "note pinned" : "note"}
           style={{ background: palette[note.id % palette.length] }}
         >
+        <div className='top-row'>
           {editingId === note.id ? (
-            <>
               <textarea
                 className="note-edit-input"
                 value={draft}
@@ -58,11 +58,17 @@ function AllNotes({ notes, removeNote, editNote, setPin }) {
                   }
                 }}
               />
-            </>
           ) : (
             <span>{note.value}</span>
           )}
-
+            <button
+                className={note.pinned ? "pin-btn pinned-btn" : "pin-btn"}
+                onClick={() => setPin(note.id, !note.pinned)}
+              >
+                <Pin size={16} />
+            </button>
+          </div>
+          
           <div className="note-footer">
             <span className="note-date">{formattedDate(note.id)}</span>
 
@@ -84,12 +90,7 @@ function AllNotes({ notes, removeNote, editNote, setPin }) {
                 <Trash2 size={16} />
               </button>
 
-              <button
-                className={note.pinned ? "pin-btn pinned-btn" : "pin-btn"}
-                onClick={() => setPin(note.id, !note.pinned)}
-              >
-                <Pin size={16} />
-              </button>
+              
             </div>
           </div>
         </li>

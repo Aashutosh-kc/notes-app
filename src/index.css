@@ -1,10 +1,49 @@
+:root{
+  --font-main: "Poppins", sans-serif;
+  --bg: #FFF7F5;
+  --surface: #FFFFFF;
+  --surface-hover: #FFF0EC;
+
+  --accent: #E85D5A;
+  --accent-hover: #D94B48;
+
+  --text: #292323;
+  --text-muted: #8A8080;
+
+  --border: #EADFDB;
+  --danger: #DC4545;
+  --success: #268653;
+
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 32px;
+
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-full: 999px;
+
+  --transition: 0.2s ease;
+}
 *{
   margin : 0;
   padding: 0;
   box-sizing: border-box;
 }
 body{
-  font-family: sans-serif;
-  background-color: #FFFFFF;
+  font-family: var(--font-main);
+  background-color: var(--bg);
+  color: var(--text);
    min-height: 100vh;
+}
+button,
+input,
+textarea {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
 }

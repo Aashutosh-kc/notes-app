@@ -9,6 +9,7 @@
 }
 
 .all-notes li {
+    position: relative;
     display: flex;
     flex-direction: column;
     border: 1px solid rgba(0, 0, 0, 0.1);
@@ -18,11 +19,14 @@
     align-items: center;
     gap: 12px;
 }
-
-.note.pinned {
-    border: 1px solid #1a1a1a;
+.top-row{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
 }
-
+.note.pinned {
+    border: 1px solid var(--border);
+}
 .note-edit-input {
     width: 100%;
     font-size: 20px;
@@ -112,21 +116,42 @@
 }
 
 .pin-btn {
-    color: white;
-    padding: 4px 8px;
-    border-radius: 6px;
-    font-size: 12px;
-    margin-right: 4px;
-    border: 1px solid #2c7a99;
-    background: #3b9ab8;
+    position: absolute;
+    top: -16px;
+    left: -16px;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    padding: 0;
+
+    border-radius: 50%;
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--text);
+
     cursor: pointer;
+    transition: all 0.2s ease;
 }
 
 .pin-btn:hover {
-    opacity: 0.85;
+    background: var(--surface-hover);
+    color: var(--accent);
+    transform: translateY(-2px);
+    transform: rotate(-35deg);
 }
 
 .pinned-btn {
-    background: #d4a017;
-    border-color: #d4a017;
+    background: var(--text);
+    border-color: var(--text);
+    color: white;
+    transform: rotate(-35deg);
+}
+
+.pinned-btn:hover {
+    background: var(--accent-hover);
+    color: white;
+    border-color: var(--accent-hover);
 }

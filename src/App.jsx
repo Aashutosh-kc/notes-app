@@ -2,9 +2,9 @@ import {  useEffect, useState,useRef } from 'react';
 import AddNotes from './components/AddNotes.jsx';
 import AllNotes from './components/AllNotes.jsx';
 import Toast from './components/Toast.jsx';
+import Header from './components/Header.jsx'
 import './App.css'
 function App(){
-  
 
   const [notes, setNotes] = useState(()=>{
   const saved = localStorage.getItem('notes');
@@ -41,7 +41,13 @@ function App(){
       updatedNotes.sort((a,b) => b.pinned - a.pinned)
       return updatedNotes;
     });
-    showToast("Note Pinned sucessfully.","success")
+    if (value){
+      showToast("Note Pinned sucessfully.","success")
+    }
+    else{
+      showToast("Note Unpinned sucessfully.","success")
+    }
+    
   }
   useEffect(()=>{
     try{
@@ -54,7 +60,11 @@ function App(){
 
   return(
   <>
+  <Header appName="Notes" repoName="notes-app"/>
   <h1>Notes</h1>
+  <p className="page-subtitle">
+    Your thoughts, organized in one place.
+  </p>
   <AddNotes setNotes={setNotes} showToast={showToast}/>
   <AllNotes notes={notes}  removeNote={removeNote} editNote={editNote} setPin={setPin}/>
   {toast && <Toast message={toast.message} type={toast.type} />}

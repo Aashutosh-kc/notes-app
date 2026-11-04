@@ -1,35 +1,49 @@
-.add-notes{
-	margin: 0 auto 24px;
-	display: flex;
-	gap: 8px;
-	width: 400px;
-	border: 1px solid rgba(0, 0, 0, 0.1);	
-	padding: 20px;
-	justify-content: center;
-	border-radius: 12px;
-	background: #ffffff;
-	
+
+.add-notes {
+  margin: 0 auto 32px;
+  display: flex;
+  gap: 10px;
+  width: min(90%, 500px);
+  padding: 12px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  background: var(--surface);
+  /* box-shadow: var(--shadow-sm); */
 }
-.add-notes input{
-	flex: 1;
-	background-color: transparent;
-	border-radius: 8px;
-	padding: 8px 12px;
-	border: 1.5px solid #306b54;
-	font: inherit;
+
+.add-notes input {
+  flex: 1;
+  min-width: 0;
+  background: transparent;
+  border-radius: var(--radius-sm);
+  padding: 10px 12px;
+  border: 1px solid transparent;
+  outline: none;
+  color: var(--text);
+  font-size: 14px;
+  transition: var(--transition);
 }
-.add-notes input::placeholder{
-	color: black;
+
+.add-notes input::placeholder {
+  color: var(--text-muted);
 }
-.add-notes button{
-	border: none;
-	border-radius: 8px;
-	padding: 8px 12px;
-	color: #ffffff;
-	background: #000000;
-	font: inherit;
+
+.add-notes input:focus {
+  border-color: var(--accent);
+  background: var(--bg);
 }
-.add-notes button:hover{
-	opacity: 0.85;
-	cursor: pointer;
+
+.add-notes button {
+  border: none;
+  border-radius: var(--radius-sm);
+  padding: 8px 20px;
+  color: white;
+  background: var(--accent);
+  font-weight: 500;
+  transition: var(--transition);
+}
+
+.add-notes button:hover {
+  background: var(--accent-hover);
+  transform: translateY(-2px);
 }

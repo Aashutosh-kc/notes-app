@@ -1,7 +1,11 @@
 h1{
 	text-align: center;
 	padding: 32px 0 8px;
-	color: #151314;
+	color: var(--text);
 	font-size: 32px;
-	font-weight: 800;
+	font-weight: 700;
+}
+.page-subtitle{
+	text-align: center;
+	color: var(--text-muted);
 }
