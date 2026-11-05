@@ -18,6 +18,20 @@
     width: 350px;
     align-items: center;
     gap: 12px;
+    transition: all var(--transition);
+
+}
+.all-notes li:hover{
+    transform: scale(1.05);
+    .all-btn{
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(-2px);
+    }
+    .pin-btn{
+        visibility: visible;
+    }
+
 }
 .top-row{
     display: flex;
@@ -68,6 +82,9 @@
 
 .all-btn {
     display: flex;
+    visibility: hidden;
+    opacity: 0;
+    transition: all var(--transition);
 }
 
 .edit-btn {
@@ -126,7 +143,7 @@
     width: 36px;
     height: 36px;
     padding: 0;
-
+    visibility: hidden;
     border-radius: 50%;
     border: 1px solid var(--border);
     background: var(--surface);
@@ -147,6 +164,7 @@
     background: var(--text);
     border-color: var(--text);
     color: white;
+    visibility: visible;
     transform: rotate(-35deg);
 }
 
