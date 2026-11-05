@@ -13,7 +13,7 @@ A simple app to write, add, and delete notes.
 
 
 
-![Preview](preview2.png)
+![Preview](preview3.png)
 
 
 
