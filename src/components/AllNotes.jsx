@@ -1,20 +1,19 @@
-import './AllNotes.css';
+import "./AllNotes.css";
 
-import { useState } from 'react';
+import { useState } from "react";
 
-import { Trash2, Pencil, Save, Pin } from 'lucide-react';
+import { Trash2, Pencil, Save, Pin } from "lucide-react";
 
 function AllNotes({ notes, removeNote, editNote, setPin }) {
-
   const [editingId, setEditingId] = useState(null);
-  const [draft, setDraft] = useState('');
-  const palette = ['#f97a5c', '#f5b942', '#a78bfa', '#38bdf8', '#a3e635'];
+  const [draft, setDraft] = useState("");
+  const palette = ["#f97a5c", "#f5b942", "#a78bfa", "#38bdf8", "#a3e635"];
 
   function formattedDate(date) {
-    return new Date(date).toLocaleDateString('en-US', {
-      month: 'short',
-      day: 'numeric',
-      year: 'numeric',
+    return new Date(date).toLocaleDateString("en-US", {
+      month: "short",
+      day: "numeric",
+      year: "numeric",
     });
   }
 
@@ -38,8 +37,8 @@ function AllNotes({ notes, removeNote, editNote, setPin }) {
           className={note.pinned ? "note pinned" : "note"}
           style={{ background: palette[note.id % palette.length] }}
         >
-        <div className='top-row'>
-          {editingId === note.id ? (
+          <div className="top-row">
+            {editingId === note.id ? (
               <textarea
                 className="note-edit-input"
                 value={draft}
@@ -53,22 +52,22 @@ function AllNotes({ notes, removeNote, editNote, setPin }) {
                 rows={1}
                 ref={(ta) => {
                   if (ta) {
-                    ta.style.height = 'auto';
+                    ta.style.height = "auto";
                     ta.style.height = ta.scrollHeight + "px";
                   }
                 }}
               />
-          ) : (
-            <span>{note.value}</span>
-          )}
+            ) : (
+              <span>{note.value}</span>
+            )}
             <button
-                className={note.pinned ? "pin-btn pinned-btn" : "pin-btn"}
-                onClick={() => setPin(note.id, !note.pinned)}
-              >
-                <Pin size={16} />
+              className={note.pinned ? "pin-btn pinned-btn" : "pin-btn"}
+              onClick={() => setPin(note.id, !note.pinned)}
+            >
+              <Pin size={16} />
             </button>
           </div>
-          
+
           <div className="note-footer">
             <span className="note-date">{formattedDate(note.id)}</span>
 
@@ -89,8 +88,6 @@ function AllNotes({ notes, removeNote, editNote, setPin }) {
               >
                 <Trash2 size={16} />
               </button>
-
-              
             </div>
           </div>
         </li>
@@ -100,4 +97,3 @@ function AllNotes({ notes, removeNote, editNote, setPin }) {
 }
 
 export default AllNotes;
-
