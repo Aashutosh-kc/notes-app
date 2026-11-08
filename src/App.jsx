@@ -11,7 +11,7 @@ function App() {
   });
   const [toast, setToast] = useState(null);
   const toastTimer = useRef(null);
-
+  const palette = ["#f97a5c", "#f5b942", "#a78bfa", "#38bdf8", "#a3e635"];
   function showToast(message, type) {
     clearInterval(toastTimer.current);
     setToast({ message, type });
@@ -35,7 +35,9 @@ function App() {
     );
     showToast("Note edited sucessfully.", "success");
   }
-
+  function setColor(id,newColor){
+    setNotes((prev) => prev.map((n)=> (n.id === id? {...n, bgColor: newColor}: n)));
+  }
   function setPin(id, value) {
     setNotes((prev) => {
       const updatedNotes = prev.map((n) =>
@@ -63,12 +65,14 @@ function App() {
       <Header appName="Notes" repoName="notes-app" />
       <h1>Notes</h1>
       <p className="page-subtitle">Your thoughts, organized in one place.</p>
-      <AddNotes setNotes={setNotes} showToast={showToast} />
+      <AddNotes setNotes={setNotes} showToast={showToast} palette={palette} />
       <AllNotes
         notes={notes}
         removeNote={removeNote}
         editNote={editNote}
         setPin={setPin}
+        palette={palette}
+        setColor={setColor}
       />
       {toast && <Toast message={toast.message} type={toast.type} />}
     </>

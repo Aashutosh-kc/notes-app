@@ -2,12 +2,12 @@ import "./AllNotes.css";
 
 import { useState } from "react";
 
-import { Trash2, Pencil, Save, Pin } from "lucide-react";
+import { Trash2, Pencil, Save, Pin,Palette } from "lucide-react";
 
-function AllNotes({ notes, removeNote, editNote, setPin }) {
+function AllNotes({ notes, removeNote, editNote, setPin,palette,setColor }) {
   const [editingId, setEditingId] = useState(null);
   const [draft, setDraft] = useState("");
-  const palette = ["#f97a5c", "#f5b942", "#a78bfa", "#38bdf8", "#a3e635"];
+
 
   function formattedDate(date) {
     return new Date(date).toLocaleDateString("en-US", {
@@ -35,7 +35,7 @@ function AllNotes({ notes, removeNote, editNote, setPin }) {
         <li
           key={note.id}
           className={note.pinned ? "note pinned" : "note"}
-          style={{ background: palette[note.id % palette.length] }}
+          style={{ background: note.bgColor }}
         >
           <div className="top-row">
             {editingId === note.id ? (
@@ -72,6 +72,17 @@ function AllNotes({ notes, removeNote, editNote, setPin }) {
             <span className="note-date">{formattedDate(note.id)}</span>
 
             <div className="all-btn">
+            <div className="palette-btn">
+              <Palette />
+              <div className="color-selection">
+                {palette.map((color,index)=>
+                <div key={index} 
+                  className="circle" 
+                  style={{background: color}} 
+                  onClick={()=>setColor(note.id,color)}>
+                </div>)}
+              </div>
+            </div>
               {editingId === note.id ? (
                 <button className="save-btn" onClick={() => saveEdit(note.id)}>
                   <Save size={16} />
@@ -90,6 +101,7 @@ function AllNotes({ notes, removeNote, editNote, setPin }) {
               </button>
             </div>
           </div>
+
         </li>
       ))}
     </ul>

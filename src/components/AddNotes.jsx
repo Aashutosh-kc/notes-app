@@ -1,19 +1,20 @@
 import './AddNotes.css';
 import { useState} from 'react';
-function AddNotes({setNotes,showToast}){
+function AddNotes({setNotes,showToast,palette}){
 	const [input,setInput] = useState('');
-
+	
 	function handleSubmit(){
 		if (input.trim() === '')
 		{
 			showToast("Note can't be empty","error");
 			return ;
 		}
-			
+			const now = Date.now();
 		const newNote = {
-			id : Date.now(),
+			id : now,
 			value : input,
-			pinned: false
+			pinned: false,
+			bgColor: palette[now % palette.length]
 		}
 		setNotes((prev) => [...prev ,newNote]);
 		setInput('');
