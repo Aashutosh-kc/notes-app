@@ -1,23 +1,22 @@
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState, useRef, use } from "react";
 import AddNotes from "./components/AddNotes.jsx";
 import AllNotes from "./components/AllNotes.jsx";
 import Toast from "./components/Toast.jsx";
 import Header from "./components/Header.jsx";
 import "./App.css";
+import { User } from "lucide-react";
 function App() {
+
   const [notes, setNotes] = useState(() => {
     const saved = localStorage.getItem("notes");
     return saved ? JSON.parse(saved) : [];
   });
   const [toast, setToast] = useState(null);
-  const toastTimer = useRef(null);
+  const toastCount =  useRef(1);
   const palette = ["#f97a5c", "#f5b942", "#a78bfa", "#38bdf8", "#a3e635"];
-  function showToast(message, type) {
-    clearInterval(toastTimer.current);
-    setToast({ message, type });
-    toastTimer.current = setTimeout(() => {
-      setToast(null);
-    }, 3000);
+  function showToast(message, type, duration = 3000 ) {
+    toastCount.current += 1;
+    setToast({id: toastCount.current, message, type ,duration });
   }
 
   function removeNote(id) {
@@ -74,7 +73,7 @@ function App() {
         palette={palette}
         setColor={setColor}
       />
-      {toast && <Toast message={toast.message} type={toast.type} />}
+      {toast && <Toast setToast={setToast} id={toast.id} message={toast.message} type={toast.type} duration={toast.duration}/>}
     </>
   );
 }

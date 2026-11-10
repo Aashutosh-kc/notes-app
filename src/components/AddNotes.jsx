@@ -18,7 +18,7 @@ function AddNotes({setNotes,showToast,palette}){
 		}
 		setNotes((prev) => [...prev ,newNote]);
 		setInput('');
-		showToast("Note created sucessfully","success");
+		showToast(1.1,"Note created sucessfully","success");
 	}
 	return (
 	<div className = "add-notes">
